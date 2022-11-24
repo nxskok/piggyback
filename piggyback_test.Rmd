@@ -1,0 +1,45 @@
+try out piggyback package
+
+```{r}
+library(piggyback)
+library(tidyverse)
+```
+
+download
+
+```{r}
+pb_download(repo = "cboettig/piggyback-tests")
+```
+
+that works
+
+find something
+
+```{r}
+list.files("../ratings", "*.rds")
+```
+
+upload belgium_post.rds
+
+```{r}
+pb_new_release("nxskok/piggyback", "v0.0.1")
+pb_upload("../ratings/belgium_post.rds", repo = "nxskok/piggyback", tag = "v0.0.1")
+```
+
+what files do I have?
+
+```{r}
+pb_list("nxskok/piggyback")
+```
+
+download it again
+
+```{r}
+pb_download(repo = "nxskok/piggyback")
+```
+
+```{r}
+belgium <- read_rds("belgium_post.rds")
+str(belgium)
+```
+
